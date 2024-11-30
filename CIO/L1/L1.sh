@@ -5,6 +5,7 @@
 # |=====================|
 # L1.cfg - configuration file
 # !! FILE L1.cfg MUST BE IN THE SAME FOLDERS AS L1.sh !!
+# PUMPKIN YA DADA 
 source ./L1.cfg
 
 #Function to check cfg file in fn1
@@ -29,7 +30,9 @@ is_root() {
         return 0  # Root
     fi
 }
-
+echo "==========================================="
+echo "Script start. by PUMPKIN YA DADA"
+echo "==========================================="
 # -------------------------------------------------
 # Function to get system information
 # -------------------------------------------------
@@ -178,6 +181,8 @@ get_general_info() {
         echo ":::::::: OTHER-INFO ::::::::"
         echo -e "\nDate-"
         date
+        echo -e "\nSudo-"
+        sudo -l
         echo "SMART disk status:"
         # The following block requires root privileges
         if is_root; then
@@ -202,7 +207,7 @@ get_general_info() {
         fi
     fi
 }
-
+# PUMPKIN YA DADA
 # -------------------------------------------------
 # Call all functions
 # -------------------------------------------------
@@ -217,7 +222,8 @@ get_logs_info $logs_info                                # logs_info
 get_passwd_shadow_info $passwd_shadow_info              # passwd_shadow_info
 get_passwd_shadow_grep_info $passwd_shadow_grep_info    # passwd_shadow_grep_info
 get_general_info $general_info                          # general_info
-
+# PUMPKIN YA DADA
 echo "==========================================="
-echo "Script finished."
+echo "Script finished. by PUMPKIN YA DADA"
 echo "==========================================="
+# PUMPKIN YA DADA
