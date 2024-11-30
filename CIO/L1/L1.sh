@@ -6,6 +6,7 @@
 # L1.cfg - configuration file
 # !! FILE L1.cfg MUST BE IN THE SAME FOLDERS AS L1.sh !!
 # PUMPKIN YA DADA 
+
 source ./L1.cfg
 
 #Function to check cfg file in fn1
@@ -37,7 +38,7 @@ echo "==========================================="
 # Function to get system information
 # -------------------------------------------------
 get_system_info() {
-    if [$1 -eq 1] 
+    if [[ $1 -eq 1 ]] 
     then
         echo ":::::::: SYSTEM-DISTRIBUTION ::::::::"
         cat /etc/*-release
@@ -56,7 +57,7 @@ get_system_info() {
 # Function to get network information
 # -------------------------------------------------
 get_network_info() {
-    if [$1 -eq 1] 
+    if [[ $1 -eq 1 ]] 
     then
         echo ":::::::: NETWORKS ::::::::"
         /sbin/ifconfig -a
@@ -71,7 +72,7 @@ get_network_info() {
 # Function to get process and application information
 # -------------------------------------------------
 get_processes_info() {
-    if [$1 -eq 1] 
+    if [[ $1 -eq 1 ]] 
     then
         echo ":::::::: PROCESSES-APPLICATIONS ::::::::"
         ps aux
@@ -95,7 +96,7 @@ get_processes_info() {
 # Function to get user information
 # -------------------------------------------------
 get_user_info() {
-    if [$1 -eq 1] 
+    if [[ $1 -eq 1 ]] 
     then
         echo ":::::::: WHO-AM-I ::::::::"
         id
@@ -111,7 +112,7 @@ get_user_info() {
 # Function to get network connections and services
 # -------------------------------------------------
 get_connection_info() {
-    if [$1 -eq 1] 
+    if [[ $1 -eq 1 ]] 
     then
         echo ":::::::: USERS-HOST ::::::::"
         lsof -i
@@ -131,7 +132,7 @@ get_connection_info() {
 # Function to get log and audit information
 # -------------------------------------------------
 get_logs_info() {
-    if [$1 -eq 1] 
+    if [[ $1 -eq 1 ]] 
     then
         echo ":::::::: LOGS-LOG-AUDIT ::::::::"
         #cat ~/.bash_history
@@ -147,7 +148,7 @@ get_logs_info() {
 # Function to get passwd and shadow information
 # -------------------------------------------------
 get_passwd_shadow_info() {
-    if [$1 -eq 1] 
+    if [[ $1 -eq 1 ]] 
     then
         echo ":::::::: PASSWD-SHADOW ::::::::"
         cat /etc/passwd
@@ -164,7 +165,7 @@ get_passwd_shadow_info() {
 # Function to grep for passwords and user information
 # -------------------------------------------------
 get_passwd_shadow_grep_info() {
-    if [$1 -eq 1] 
+    if [[ $1 -eq 1 ]] 
     then
         echo ":::::::: PASSWD-SHADOW-GREP ::::::::"
         grep -i user $fn1  #--> L1.cfg
@@ -177,7 +178,7 @@ get_passwd_shadow_grep_info() {
 # Function to get general information
 # -------------------------------------------------
 get_general_info() {
-    if [$1 -eq 1] 
+    if [[ $1 -eq 1 ]] 
     then
         echo ":::::::: OTHER-INFO ::::::::"
         echo -e "\nDate-"
