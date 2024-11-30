@@ -211,20 +211,20 @@ get_general_info() {
 # -------------------------------------------------
 # Function to get ssh gnupg dir
 # -------------------------------------------------
-get_ssh_gnupg_dir() {
+get_ssh_gnupg_dir() { #need root
     if [$1 -eq 1] 
     then
         echo ":::::::: SSH-GNUPG-DIR ::::::::"
         SSH_DIR="$HOME/.ssh"
         GNUPG_DIR="$HOME/.gnupg"
         # Check if the directories exist
-        if [ ! -d "$SSH_DIR" ]; then
-        echo "Error: directory $SSH_DIR does not exist!"
-        exit 1
+        if [ ! -d "$SSH_DIR" ]; then #need root
+            echo "Error: directory $SSH_DIR does not exist!"
+            exit 1
         fi
-        if [ ! -d "$GNUPG_DIR" ]; then
-        echo "Error: directory $GNUPG_DIR does not exist!"
-        exit 1
+        if [ ! -d "$GNUPG_DIR" ]; then #need root
+            echo "Error: directory $GNUPG_DIR does not exist!"
+            exit 1
         fi
         # Show contents of ~/.ssh
         echo "Contents of $SSH_DIR:"
