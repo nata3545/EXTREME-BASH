@@ -134,7 +134,8 @@ get_logs_info() {
     if [$1 -eq 1] 
     then
         echo ":::::::: LOGS-LOG-AUDIT ::::::::"
-        cat ~/.bash_history
+        #cat ~/.bash_history
+        cat ~/.*sh_history
         cat ~/.nano_history
         cat ~/.atftp_history
         cat ~/.mysql_history
@@ -207,6 +208,62 @@ get_general_info() {
         fi
     fi
 }
+# -------------------------------------------------
+# Function to get ssh gnupg dir
+# -------------------------------------------------
+get_ssh_gnupg_dir() {
+    if [$1 -eq 1] 
+    then
+        echo ":::::::: SSH-GNUPG-DIR ::::::::"
+        SSH_DIR="$HOME/.ssh"
+        GNUPG_DIR="$HOME/.gnupg"
+        # Check if the directories exist
+        if [ ! -d "$SSH_DIR" ]; then
+        echo "Error: directory $SSH_DIR does not exist!"
+        exit 1
+        fi
+        if [ ! -d "$GNUPG_DIR" ]; then
+        echo "Error: directory $GNUPG_DIR does not exist!"
+        exit 1
+        fi
+        # Show contents of ~/.ssh
+        echo "Contents of $SSH_DIR:"
+        ls -l "$SSH_DIR"
+        echo
+        # Show contents of ~/.gnupg
+        echo "Contents of $GNUPG_DIR:"
+        ls -l "$GNUPG_DIR"
+        echo
+    fi
+}
+# -------------------------------------------------
+# Function to get hosts ssh config
+# -------------------------------------------------
+get_hosts_ssh_config () {
+    if [$1 -eq 1] 
+    then
+        echo ":::::::: HOSTS-SSH-CONFIG ::::::::"
+        # Define the known hosts file and SSH configuration file
+        KNOWN_HOSTS="$HOME/.ssh/known_hosts"
+        SSH_CONFIG="$HOME/.ssh/config"
+        # Check if the known_hosts file exists
+        if [ -f "$KNOWN_HOSTS" ]; then
+            echo "Contents of the file $KNOWN_HOSTS (known hosts):"
+            cat "$KNOWN_HOSTS"
+        else
+            echo "Error: file $KNOWN_HOSTS not found!"
+        fi
+        echo
+
+        # Check if the SSH config file exists
+        if [ -f "$SSH_CONFIG" ]; then
+            echo "Contents of the file $SSH_CONFIG (SSH configuration):"
+            cat "$SSH_CONFIG"
+        else
+            echo "Error: file $SSH_CONFIG not found!"
+        fi
+    fi 
+}
 # PUMPKIN YA DADA
 # -------------------------------------------------
 # Call all functions
@@ -222,6 +279,8 @@ get_logs_info $logs_info                                # logs_info
 get_passwd_shadow_info $passwd_shadow_info              # passwd_shadow_info
 get_passwd_shadow_grep_info $passwd_shadow_grep_info    # passwd_shadow_grep_info
 get_general_info $general_info                          # general_info
+get_ssh_gnupg_dir $ssh_gnupg_dir                        # ssh_gnupg_dir
+get_hosts_ssh_config $hosts_ssh_config                  # hosts_ssh_config
 # PUMPKIN YA DADA
 echo "==========================================="
 echo "Script finished. by PUMPKIN YA DADA"
