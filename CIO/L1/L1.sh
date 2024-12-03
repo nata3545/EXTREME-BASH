@@ -240,7 +240,7 @@ get_general_info() {
 # Function to get ssh gnupg dir
 # -------------------------------------------------
 get_ssh_gnupg_dir() { #need root
-    if [$1 -eq 1] 
+    if [[ $1 -eq 1 ]] 
     then
         echo ":::::::: SSH-GNUPG-DIR ::::::::"
         SSH_DIR="$HOME/.ssh"
@@ -271,7 +271,7 @@ get_ssh_gnupg_dir() { #need root
 # Function to get hosts ssh config
 # -------------------------------------------------
 get_hosts_ssh_config () {
-    if [$1 -eq 1] 
+    if [[ $1 -eq 1 ]] 
     then
         echo ":::::::: HOSTS-SSH-CONFIG ::::::::"
         # Define the known hosts file and SSH configuration file
@@ -302,7 +302,7 @@ get_hosts_ssh_config () {
 # Function to get privilege escalation
 # -------------------------------------------------
 get_privilege_escalation () {
-    if [$1 -eq 1] 
+    if [[ $1 -eq 1 ]] 
     then
         echo ""
         echo $yellowintensy"[+] Escape the shell:"$white
@@ -348,7 +348,7 @@ get_privilege_escalation () {
 # Function to get exploits
 # -------------------------------------------------
 get_exploits () {
-    if [$1 -eq 1] 
+    if [[ $1 -eq 1 ]]  
     then
         echo $redintensy"Linux Kernel 2.6.22 < 3.9 Dirty Cow$white - https://www.exploit-db.com/exploits/40839"
         echo $redintensy"Linux Kernel 2.6.22 < 3.9 Dirty Cow (x86-x64)$white - https://www.exploit-db.com/exploits/40616"
